@@ -1,0 +1,22 @@
+.search,
+.reset {
+  margin-right: 25px;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 20px;
+}
+.movie-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin: 5% 7%;
+}
+.movie-card-container > * {
+  flex: 1 1 100%;
+}
+h1 {
+  text-align: center;
+}
