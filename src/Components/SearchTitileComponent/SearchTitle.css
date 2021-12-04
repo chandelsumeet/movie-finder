@@ -1,6 +1,12 @@
 .search,
 .reset {
   margin-right: 25px;
+  background: #eb5d1e !important;
+  border: none !important;
+  border-color: none !important;
+}
+.search:hover {
+  box-shadow: 0 0 10px #eb5d1e;
 }
 .grid-container {
   display: grid;
@@ -13,6 +19,7 @@
   flex-wrap: wrap;
   gap: 25px;
   margin: 5% 7%;
+  justify-content: center;
 }
 .movie-card-container > * {
   flex: 1 1 100%;

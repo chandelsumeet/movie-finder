@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PaginationComponent from "../Pagination/Pagination";
 import {
   Form,
   FormGroup,
@@ -10,6 +11,7 @@ import {
   CardTitle,
   Container,
   CardGroup,
+  Pagination,
 } from "reactstrap";
 import "./SearchTitle.css";
 
@@ -18,14 +20,14 @@ import MovieCard from "../MovieCard/MovieCard";
 const SearchByTitile = () => {
   const [movieName, setMovieName] = useState("");
   const [movieData, setMovie] = useState({});
-
+  const [pageNumber, setPageNumber] = useState(1);
   const getInputHandler = (e) => {
     setMovieName(e.target.value);
   };
 
-  const getMovieHandler = async () => {
+  const getMovieHandler = async (event, pageNumber) => {
+    event.preventDefault();
     const apikey = "553a1371";
-    let pageNumber = 1;
 
     const url = `http://www.omdbapi.com/?s=${movieName}&page=${pageNumber}&apikey=${apikey}`;
 
@@ -37,7 +39,8 @@ const SearchByTitile = () => {
       console.error("bad request");
     }
   };
-  const { Search } = movieData;
+  const { Search, totalResults } = movieData;
+
   return (
     <>
       <Container>
@@ -49,10 +52,10 @@ const SearchByTitile = () => {
           }}
         >
           <CardBody>
-            <Form>
+            <Form onSubmit={(event) => getMovieHandler(event, 1)}>
               <div className="grid-container">
                 <Input onChange={getInputHandler} />
-                <Button className="search" onClick={getMovieHandler}>
+                <Button type="submit" className="search">
                   Search
                 </Button>
               </div>
@@ -64,9 +67,17 @@ const SearchByTitile = () => {
       <div className="movie-card-container">
         {Search &&
           Search.map((movie) => {
-            return <MovieCard movie={movie} />;
+            return <MovieCard key={movie.imdbID} movie={movie} />;
           })}
       </div>
+
+      {Search && (
+        <PaginationComponent
+          totalResults={totalResults}
+          setPageNumber={setPageNumber}
+          getMovieHandler={getMovieHandler}
+        />
+      )}
     </>
   );
 };
