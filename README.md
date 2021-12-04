@@ -4,13 +4,14 @@
 
 ![](./MovieFinder.gif)
 
-# Check Live Project
+[Check Live Project](https://chandelsumeet-moviefinder.netlify.app/)
 
-## Technology Used
+## Tech Stack and Api's Used
 
 - ReactJS
 - [OMDb API](http://www.omdbapi.com/)
 - Javascript
+- Pagination
 - HTML
 - CSS
 - Reactstrap
