@@ -4,7 +4,7 @@
 
 ![](./MovieFinder.gif)
 
-[Check Live Project](https://chandelsumeet-moviefinder.netlify.app/)
+# [Check Live Project](https://chandelsumeet-moviefinder.netlify.app/)
 
 ## Tech Stack and Api's Used
 
